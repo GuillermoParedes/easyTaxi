@@ -1,17 +1,25 @@
 package bo.umsa.easytaxi.easytaxi;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    Button b1;
+    Intent intent;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -35,5 +43,15 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buscarTaxi(View vista){
+
+        b1 = (Button) findViewById(R.id.btnSolTaxi);
+
+        intent = new Intent(MainActivity.this, mapas.class);
+        bundle.putString("parametro", "Button B1");
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
